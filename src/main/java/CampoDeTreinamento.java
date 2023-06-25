@@ -67,10 +67,10 @@ public class CampoDeTreinamento {
         chrome.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
         WebElement select = chrome.findElement(By.id("elementosForm:escolaridade"));
         Select escolaridade = new Select(select);
-        escolaridade.selectByVisibleText("Superior");
+        escolaridade.selectByVisibleText("Especializacao");
 
-        Assert.assertEquals("Superior", escolaridade.getFirstSelectedOption());
-        chrome.quit();
+        Assert.assertEquals("Especializacao", escolaridade.getFirstSelectedOption().getText());
+
     }
 
     @Test
@@ -109,10 +109,23 @@ public class CampoDeTreinamento {
         WebDriver chrome = new ChromeDriver();
         chrome.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
         chrome.findElement(By.linkText("Voltar")).click();
+        String resultado = chrome.findElement(By.id("resultado")).getText();
+
+        Assert.assertEquals("Voltou!", resultado);
 
         chrome.quit();
     }
 
+    @Test
+    public void testeVerificarTitulo(){
+        System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
+        WebDriver chrome = new ChromeDriver();
+        chrome.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+        String resultado = chrome.findElement(By.tagName("h3")).getText();
+
+        Assert.assertTrue(chrome.findElement(By.tagName("h3")).getText().contains("Campo de Treinamento"));
+        chrome.quit();
+    }
 
 
 
