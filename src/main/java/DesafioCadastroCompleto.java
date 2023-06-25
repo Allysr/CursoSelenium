@@ -40,7 +40,6 @@ public class DesafioCadastroCompleto {
        Assert.assertEquals("Sugestoes: Gostaria de deixar sugerido um novo campo.", chrome.findElement(By.id("descSugestoes")).getText());
 
        chrome.quit();
-
    }
 
 }
