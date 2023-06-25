@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CampoDeTreinamento {
     @Test
-    public  void testeCampoDeInputTexto() {
+    public  void validarCampoDeInputTexto() {
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         WebDriver chrome = new ChromeDriver();
         chrome.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
@@ -25,7 +25,7 @@ public class CampoDeTreinamento {
     }
 
     @Test
-    public void testeCampoDeTextoArea (){
+    public void validarCampoDeTextoArea (){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         WebDriver chrome = new ChromeDriver();
         chrome.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
@@ -37,7 +37,7 @@ public class CampoDeTreinamento {
     }
 
     @Test
-    public void testeCampoDeSelecaoRadio(){
+    public void validarCampoDeSelecaoRadio(){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         WebDriver chrome = new ChromeDriver();
         chrome.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
@@ -49,7 +49,7 @@ public class CampoDeTreinamento {
     }
 
     @Test
-    public void testeCampoCheckbox(){
+    public void validarCampoCheckbox(){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         WebDriver chrome = new ChromeDriver();
         chrome.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
@@ -61,7 +61,7 @@ public class CampoDeTreinamento {
     }
 
     @Test
-    public void testeCampoSelect(){
+    public void validarCampoSelect(){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         WebDriver chrome = new ChromeDriver();
         chrome.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
@@ -71,11 +71,10 @@ public class CampoDeTreinamento {
 
         Assert.assertEquals("Especializacao", escolaridade.getFirstSelectedOption().getText());
         chrome.quit();
-
     }
 
     @Test
-    public void testeCampoSelectMultiplo(){
+    public void validarCampoSelectMultiplo(){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         WebDriver chrome = new ChromeDriver();
         chrome.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
@@ -86,14 +85,12 @@ public class CampoDeTreinamento {
         esportes.selectByVisibleText("Corrida");
         List<WebElement> opcoesSelecionadas = esportes.getAllSelectedOptions();
 
-
         Assert.assertEquals(3, opcoesSelecionadas.size());
         chrome.quit();
-
     }
 
     @Test
-    public void testeClicarBotaoSimples(){
+    public void validarClicarBotaoSimples(){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         WebDriver chrome = new ChromeDriver();
         chrome.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
@@ -105,7 +102,7 @@ public class CampoDeTreinamento {
     }
 
     @Test
-    public void testeClicarNoLink(){
+    public void validarClicarNoLink(){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         WebDriver chrome = new ChromeDriver();
         chrome.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
@@ -117,11 +114,10 @@ public class CampoDeTreinamento {
     }
 
     @Test
-    public void testeVerificarTitulo(){
+    public void validarVerificarTitulo(){
         System.setProperty("webdriver.chrome.driver","drivers/chromedriver.exe");
         WebDriver chrome = new ChromeDriver();
         chrome.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-        String resultado = chrome.findElement(By.tagName("h3")).getText();
 
         Assert.assertTrue(chrome.findElement(By.tagName("h3")).getText().contains("Campo de Treinamento"));
         chrome.quit();
