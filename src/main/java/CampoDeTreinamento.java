@@ -70,6 +70,7 @@ public class CampoDeTreinamento {
         escolaridade.selectByVisibleText("Especializacao");
 
         Assert.assertEquals("Especializacao", escolaridade.getFirstSelectedOption().getText());
+        chrome.quit();
 
     }
 
@@ -112,7 +113,6 @@ public class CampoDeTreinamento {
         String resultado = chrome.findElement(By.id("resultado")).getText();
 
         Assert.assertEquals("Voltou!", resultado);
-
         chrome.quit();
     }
 
